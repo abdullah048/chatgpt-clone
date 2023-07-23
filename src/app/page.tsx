@@ -1,6 +1,6 @@
 import { SunIcon } from '@heroicons/react/24/outline';
 
-// OPENAI API key => HACK: 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
+// OPENAI API key => HACK:
 
 export default function Home() {
   return (
