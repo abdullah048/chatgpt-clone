@@ -6,11 +6,11 @@ import {
 } from '@heroicons/react/24/outline';
 import { useMediaQuery } from 'react-responsive';
 
-// OPENAI API key => HACK:
+// OPEN AI API key => HACK:
 
 export default function Home() {
   const smBreakpoint = useMediaQuery({
-    query: '(max-width: 650px)',
+    query: '(max-width: 830px)',
   });
   return (
     <div
@@ -34,24 +34,24 @@ export default function Home() {
             <p
               className={` ${
                 smBreakpoint
-                  ? 'w-full p-4 bg-gray-700/50 rounded-lg cursor-pointer hover:bg-gray-700'
-                  : 'infoText cursor-pointer hover:bg-gray-700'
+                  ? 'w-full p-4 bg-gray-700/50 rounded-lg cursor-pointer hover:bg-gray-700 transition-all duration-200 ease-out'
+                  : 'infoText cursor-pointer hover:bg-gray-700 transition-all duration-200 ease-out'
               }`}>
-              "Explain Something to me."
+              "Explain the difference between JS and TS."
             </p>
             <p
               className={` ${
                 smBreakpoint
-                  ? 'w-full p-4 bg-gray-700/50 rounded-lg cursor-pointer hover:bg-gray-700'
-                  : 'infoText cursor-pointer hover:bg-gray-700'
+                  ? 'w-full p-4 bg-gray-700/50 rounded-lg cursor-pointer hover:bg-gray-700 transition-all duration-200 ease-out'
+                  : 'infoText cursor-pointer hover:bg-gray-700 transition-all duration-200 ease-out'
               }`}>
               "What is the difference between a cat and dog?"
             </p>
             <p
               className={` ${
                 smBreakpoint
-                  ? 'w-full p-4 bg-gray-700/50 rounded-lg cursor-pointer hover:bg-gray-700'
-                  : 'infoText cursor-pointer hover:bg-gray-700'
+                  ? 'w-full p-4 bg-gray-700/50 rounded-lg cursor-pointer hover:bg-gray-700 transition-all duration-200 ease-out'
+                  : 'infoText cursor-pointer hover:bg-gray-700 transition-all duration-200 ease-out'
               }`}>
               "What is the color of the sun?"
             </p>
@@ -86,7 +86,7 @@ export default function Home() {
                   ? 'w-full p-4 bg-gray-700/50 rounded-lg'
                   : 'infoText'
               }`}>
-              "Hot Toast Notifications when modal is thinking"
+              "Beautiful Notifications"
             </p>
           </div>
         </div>
