@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <div className='flex'>
-          <div className='bg-[#202123] max-w-xs h-screen overflow-y-auto md:min-w-[20rem]'>
+          <div className='bg-[#202123] max-w-xs h-auto overflow-y-auto md:min-w-[20rem]'>
             <Sidebar />
           </div>
           {/* TODO: React hot-toast-notifications */}
