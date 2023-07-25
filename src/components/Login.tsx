@@ -34,7 +34,12 @@ const Login = (props: Props) => {
         />
       </div>
       <div className='flex-[0.9] flex items-start'>
-        <div className='flex space-x-2 items-center bg-gray-600 p-4 rounded-lg hover:bg-gray-700/50 cursor-pointer transition-all duration-200 ease-out'>
+        <div
+          className='flex space-x-2 items-center bg-gray-600 p-4 rounded-lg hover:bg-gray-700/50 cursor-pointer transition-all duration-200 ease-out'
+          onClick={() => {
+            setLoading(true);
+            signIn('google');
+          }}>
           {!loading ? (
             <img
               className='rounded-full w-5 h-5'
@@ -48,27 +53,20 @@ const Login = (props: Props) => {
               fill='none'
               viewBox='0 0 24 24'>
               <circle
-                className='opacity-25'
+                className='opacity-25 transition-colors duration-300 ease-in-out'
                 cx='12'
                 cy='12'
                 r='10'
-                stroke='currentColor'
-                stroke-width='4'></circle>
+                stroke={color}
+                strokeWidth='4'></circle>
               <path
-                className='opacity-75'
-                fill='currentColor'
+                className='opacity-75 transition-colors duration-300 ease-in-out'
+                fill={color}
                 d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'></path>
             </svg>
           )}
 
-          <button
-            onClick={() => {
-              setLoading(true);
-              signIn('google');
-            }}
-            className='text-white'>
-            Sign In with Google
-          </button>
+          <button className='text-white'>Sign In with Google</button>
         </div>
       </div>
     </div>

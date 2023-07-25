@@ -1,11 +1,13 @@
-import Sidebar from '@src/components/Sidebar';
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { getServerSession } from 'next-auth';
-import SessionProvider from '@src/components/SessionProvider';
 import Login from '@src/components/Login';
+import SessionProvider from '@src/components/SessionProvider';
+import Sidebar from '@src/components/Sidebar';
+import { GlobalContextProvider } from '@src/context/global.context';
 import { authOptions } from '@src/utils/authOptions';
+import type { Metadata } from 'next';
+import { getServerSession } from 'next-auth';
+import { Inter } from 'next/font/google';
+import React from 'react';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,19 +25,23 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <SessionProvider session={session}>
-          {!session ? (
-            <Login />
-          ) : (
-            <div className='flex'>
-              <div className='bg-[#202123] max-w-xs h-auto overflow-y-auto md:min-w-[20rem]'>
-                <Sidebar />
+        <GlobalContextProvider>
+          <SessionProvider session={session}>
+            {!session ? (
+              <Login />
+            ) : (
+              <div className='flex overflow-hidden w-full h-full'>
+                <div className='bg-[#202123] max-w-xs md:min-w-[20rem] h-screen'>
+                  <Sidebar />
+                </div>
+                {/* TODO: React hot-toast-notifications */}
+                <div className='bg-[#343541] flex-1 overscroll-none overflow-y-auto h-screen'>
+                  {children}
+                </div>
               </div>
-              {/* TODO: React hot-toast-notifications */}
-              <div className='bg-[#343541] flex-1'>{children}</div>
-            </div>
-          )}
-        </SessionProvider>
+            )}
+          </SessionProvider>
+        </GlobalContextProvider>
       </body>
     </html>
   );

@@ -3,18 +3,14 @@ import {
   ExclamationTriangleIcon,
   SunIcon,
 } from '@heroicons/react/24/outline';
-import { useMediaQuery } from 'react-responsive';
 
 // OPEN AI API key => HACK:
 
 export default function Home() {
-  // const smBreakpoint = useMediaQuery({
-  //   query: '(max-width: 830px)',
-  // });
   return (
     <div
-      className={`text-white flex flex-col items-center justify-center h-full lg:text-center 
-       px-2 overflow-y-auto`}>
+      className={`text-white flex flex-col items-center justify-center  lg:text-center 
+       px-2`}>
       <h1 className={`text-4xl lg:text-5xl mb-5 mt-10 font-bold lg:mb-20 `}>
         ChatGPT
       </h1>
