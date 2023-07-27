@@ -1,9 +1,24 @@
+import ChatWindow from '@src/components/Chat';
+import ChatInput from '@src/components/ChatInput';
 import React from 'react';
 
-type Props = {};
+type Props = {
+  params: {
+    id: string;
+    searchParams: {};
+  };
+};
 
 const Chat = (props: Props) => {
-  return <div>Chat</div>;
+  const {
+    params: { id },
+  } = props;
+  return (
+    <div className='flex flex-col h-screen overflow-hidden'>
+      <ChatWindow chatId={id} />
+      <ChatInput chatId={id} />
+    </div>
+  );
 };
 
 export default Chat;

@@ -27,7 +27,7 @@ export default async function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <GlobalContextProvider>
-          <Toaster />
+          <Toaster position='top-right' />
           <SessionProvider session={session}>
             {!session ? (
               <Login />
