@@ -35,14 +35,13 @@ const ChatInput = (props: Props) => {
           `https://ui-avatars.com/api/?name=${session?.user?.name}`,
       },
     };
+    const notification = toast.loading('Fetching response...');
     setPromptText('');
 
     await addDoc(
       collection(db, `users/${session?.user?.email!}/chats/${chatId}/messages`),
       message
     );
-
-    const notification = toast.loading('Fetching response...');
 
     await fetch('/api/askQuestion', {
       method: 'POST',

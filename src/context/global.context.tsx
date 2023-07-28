@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Dispatch, createContext, useReducer } from 'react';
+import React, { Dispatch, Suspense, createContext, useReducer } from 'react';
 
 type StateType = {
   count: number; // FIXME: update this state when actual implementation is done...

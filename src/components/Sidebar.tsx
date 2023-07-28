@@ -9,7 +9,7 @@ import { db } from '@src/firebase';
 import ChatRow from './ChatRow';
 import ContentLoader from 'react-content-loader';
 import { toast } from 'react-hot-toast';
-
+import { FadeLoader } from 'react-spinners';
 type Props = {};
 
 const Sidebar = (props: Props) => {
@@ -33,22 +33,15 @@ const Sidebar = (props: Props) => {
       <div className='flex-1 overflow-y-auto'>
         <div>
           <NewChat />
-          <div>{/* TODO: Modal select */}</div>
+          {loading && (
+            <div className='flex justify-center items-center min-h-[400px] h-full'>
+              <FadeLoader color='#444654' />
+            </div>
+          )}
           {chats?.docs.map((chat, index) => {
             return (
               <div className='mt-2 w-full' key={chat.id}>
-                {loading ? (
-                  <ContentLoader
-                    className='w-[130px] md:w-full'
-                    height={44}
-                    speed={1.5}
-                    backgroundColor={'#333'}
-                    foregroundColor={'#9b9999'}>
-                    <rect x='0' y='0' rx='4' ry='4' width='100%' height='44' />
-                  </ContentLoader>
-                ) : (
-                  <ChatRow id={chat.id} />
-                )}
+                <ChatRow id={chat.id} />
               </div>
             );
           })}

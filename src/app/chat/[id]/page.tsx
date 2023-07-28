@@ -14,7 +14,7 @@ const Chat = (props: Props) => {
     params: { id },
   } = props;
   return (
-    <div className='flex flex-col h-screen overflow-hidden'>
+    <div className='flex flex-col h-screen overflow-hidden gap-[10px]'>
       <ChatWindow chatId={id} />
       <ChatInput chatId={id} />
     </div>
